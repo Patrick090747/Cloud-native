@@ -42,8 +42,8 @@ func requestAndResponse(response http.ResponseWriter, request *http.Request) {
 		}
 		//valueString := strings.Join(values, "")
 		//println("header的value：" + valueString)
-		println(header + "=" + strings.Join(values, ","))        //打印request的header的k=v
-		response.Header().Set(header, strings.Join(values, ",")) // 遍历写入response的Header
+		println(header + "=" + strings.Join(values, ","))        
+		response.Header().Set(header, strings.Join(values, ",")) 
 		//println()
 
 	}
@@ -57,7 +57,7 @@ func getVersion(response http.ResponseWriter, request *http.Request) {
 	println("调用getVersion接口")
 	envStr := os.Getenv("VERSION")
 	//envStr := os.Getenv("HADOOP_HOME")
-	//println("系统环境变量：" + envStr) //可以看到 C:\soft\hadoop-3.3.1	Win10需要重启电脑才能生效
+	//println("系统环境变量：" + envStr) 
 
 	response.Header().Set("VERSION", envStr)
 	io.WriteString(response, "succeed")
